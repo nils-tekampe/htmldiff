@@ -2,8 +2,9 @@
 command line implementation of a html diff tool
 
 ## Usage
-`htmldiff-<arch> <file1.html> <file2.html>`
+`htmldiff-<platform> <file1.html> <file2.html>`
 
+Available platforms:
 - Windows: `htmldiff-win`
 - Linux: `htmldiff-linux`
 - MacOS: `htmldiff-macos`
@@ -22,5 +23,5 @@ command line implementation of a html diff tool
 ### Requirements
 - zeit/pkg (^4.3.7)
 
-### Build executable
+### Build executables
 `pkg package.json`
