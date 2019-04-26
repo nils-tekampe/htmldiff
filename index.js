@@ -2,9 +2,7 @@ const chalk = require('chalk');
 const clear = require('clear');
 const figlet = require('figlet');
 const fs = require('fs');
-//const diff = require('./htmldiff');
-
-import diff from './lib/htmldiff;††'////////////////
+const diff = require('./lib/htmldiff');
 
 // TODO: Clean start npm ausprobieren
 // TODO: Wie ist das mit der Punkt syntax hier?
