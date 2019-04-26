@@ -23,5 +23,8 @@
   },
   "pkg": {
     "assets": "node_modules/figlet/fonts/*"
+  },
+  "devDependencies": {
+    "pkg": "^4.3.7"
   }
 }

@@ -17,11 +17,6 @@ Available platforms:
 
 ### Run script
 `node index.js file1.html file2.html`
- 
-## Build
-
-### Requirements
-- zeit/pkg (^4.3.7)
 
 ### Build executables
 `pkg package.json`
