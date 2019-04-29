@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- 10.12.0
+cache: npm
+script:
+- pkg --out-path dist/ package.json
+deploy:
+  provider: releases
+  api_key:
+    secure: cKqpY1Gp7rAzjfVaEUaNWW5CUcpfo82c9qqinsRgqOhtzTHIwdXpaEZZRbJh+Kw/4oErt+c8sCpjvP6y2Xk1THmphnnzeXrySRLbnAjhn6gVD0HwJLGlzItilzr3ydjZ4ZalBuqlUX9esDGGDJ8uOjjYrmr7mRzCaNfDIqIfmPWyaKHFnivdSZj5CgZhrNxt4wPbUER5roGn5kNF2dMBOozh8zd9bL/Tr7mcNwRAGDFWBjcsazxWoD3Wm/dcMs12CKHpbNRtOYW82S2SPMrn7Nj3Au5h0Y8tTBzM52BgWcclmG+FtVxwQtTM7UnLa5hHwA0LZ/ygb7CCAQ49Y/On6Ltpnr/p8GZpPfBQtjDw5Vh4YhpLoE7/dCC+XHomdSiEG1jbSN8PzkFG+PkV9EK5pRDomhPSTth3CQrUmfd9p93Qr7y3vzXb7a01eN1esfhOiTDc/QPgI1eFpsBpVTKO8LLnK6rpfJAgGeIWOvBRdpJOv1FX3KgVTo0gkrmODuuJlQTELf3Rj0dMR065B/42w/m/Zj7whQuqITs3zAazBcCqT6f0FGVE71mlP6S8fvzZVROS8lHTVBhBkOlmDJhc9MUnvhQE3GUCQjnkmPiIItqpQxqArAWVnKjpSDK0rRiZcREz+wWpEoWNK6tYYWn5rq9lL9gOfjDX6OO+vSqNrJo=
+  skip_cleanup: true
+  file_glob: true
+  file: dist/*
+  on:
+    tags: true
