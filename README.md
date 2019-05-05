@@ -18,5 +18,12 @@ Available platforms:
 ### Run script
 `node index.js file1.html file2.html`
 
+### Installation with brew
+If you are under OSX, you should use [brew](brew.sh) to install htmldiff by 
+```
+brew tap nils-tekampe/homebrew-tap
+brew install htmldiff
+```
+
 ### Build executables
 `pkg package.json`
