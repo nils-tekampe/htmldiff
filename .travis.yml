@@ -4,13 +4,17 @@ node_js:
 cache: npm
 script:
 - pkg --out-path dist/ package.json 
-- tar -cvf dist/* > release.tar
+
+before_deploy:
+- cd ..
+- tar -zcf ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz ${REPO}
+
 deploy:
   provider: releases
   api_key:
     secure: nSeuNvt2zZ38s9YLPHR9/EjQPrQ3XgjSUM0i0uz3ES4BqneL0EFEmvPpEjKJHe8CtDinDDVaO7azcpvFc/+8MO3F7a9SeA+Oz4/cDuVkvgqVesxOGz2Ic3XVwFyxg4txdLVUpg44ZW+ElckoE3Wn4AmnIXFa05N5duR7CHnvcQYryrFHVRcDjRHh+z+4TsdsFY1hzulp6ZPvx8IaSfOv/5u2PUC9+Wo4Q18vhbCTv16b6sd0OEzlEoDx3Ug1YrGtgMTrlrQ4+ZdfY7k1xSCVP4E22HS0VQN4WSD4ChM5mzu/OtWWJ2jebZXIVxBgE2sHVr3ufJ+LMXPntB8Ktpp0/jeeIH37yfku8px7Yvwp6xlWban8JnYRdx30QuV2LakDQskaJ42tH7PZkPn8sRBJ4k7r0tE8zgwcaXyjE8bLwmtFTy1M33RetSl0mvSfRRIgHnAZkHtG+Pio62+p1mZx5MTUVMMheqg51vPdkc4agkS+S2rVAUVyOXMqyhHhdW6KTWhqQl7ws1iYlrJqXpDw0UlqBEkCD37g8jT1iOtfSGz/e4yaJ3cs6pBd1ro2YMa8TBx/64a5p1df18a8zEZKPOiZ3NcerQudfYOJFYtORZJVv80M1r/u8FXNjwQUfcDHiqkrsLTpdkm+qModX/m6V7DqXISRR12M3KZ8zwjgQB0=
   skip_cleanup: true
   file_glob: true
-  file: dist/*.tar
+  file: ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz
   on:
     tags: true
