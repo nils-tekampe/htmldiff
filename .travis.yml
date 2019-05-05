@@ -3,11 +3,11 @@ node_js:
 - 10.12.0
 cache: npm
 script:
-- pkg --out-path dist/ package.json 
+- pkg --out-path ${TRAVIS_BUILD_DIR}/dist/ package.json 
 
 before_deploy:
-- cd ..
-- tar -zcf ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz ${REPO}
+- cd ${TRAVIS_BUILD_DIR}/dist/
+- tar -zcf ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz .
 
 deploy:
   provider: releases
